@@ -1,0 +1,26 @@
+Index: lshw-02.16/src/Makefile
+===================================================================
+--- lshw-02.16.orig/src/Makefile	2012-09-12 18:04:35.000000000 -0700
++++ lshw-02.16/src/Makefile	2012-09-12 18:04:44.000000000 -0700
+@@ -27,7 +27,7 @@
+ 	CXXFLAGS+= -DSQLITE $(shell pkg-config --cflags sqlite3)
+ endif
+ #LDFLAGS=-L./core/ -g
+-LDFLAGS=-L./core/
++LDFLAGS=-L./core/ -static-libstdc++ -static-libgcc
+ ifneq ($(shell $(LD) --help 2| grep -- --as-needed), )
+ 	LDFLAGS+= -Wl,--as-needed
+ endif
+Index: lshw-02.16/src/core/Makefile
+===================================================================
+--- lshw-02.16.orig/src/core/Makefile	2012-09-12 18:04:35.000000000 -0700
++++ lshw-02.16/src/core/Makefile	2012-09-12 18:04:49.000000000 -0700
+@@ -5,7 +5,7 @@
+ DEFINES=-DPREFIX=\"$(PREFIX)\" -DSBINDIR=\"$(SBINDIR)\" -DMANDIR=\"$(MANDIR)\" -DDATADIR=\"$(DATADIR)\"
+ #CXXFLAGS?=-g -Wall $(INCLUDES) $(DEFINES) $(RPM_OPT_FLAGS)
+ CXXFLAGS?=$(CXX_DEB_FLAGS) $(INCLUDES) $(DEFINES)
+-LDFLAGS=
++LDFLAGS=-static-libstdc++ -static-libgcc
+ LDSTATIC=
+ LIBS=
+ 
