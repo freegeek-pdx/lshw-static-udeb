@@ -1,3 +1,11 @@
+lshw-static-udeb (02.16-1~20131220~1) precise; urgency=low
+
+  * Upload to freegeek-pdx ppa launchpad repository.
+  * lshw package that builds a staticly compiled version of lshw in a udeb.
+  * debian/control: Update Source, Section, Maintainer and Uploaders fields.
+
+ -- Vagrant Cascadian <vagrant@freegeek.org>  Fri, 20 Dec 2013 15:47:37 -0800
+
 lshw (02.16-0.3) freegeek-test; urgency=low
 
   * Non-maintainer upload.
